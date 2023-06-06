@@ -1,0 +1,50 @@
+//Iterative
+class Solution {
+public:
+    
+    void reverseString(vector<char>& s) {
+        int n= s.size();
+        for(int i=n-1; i>=0; i--){
+            s.push_back(s[i]);
+        }
+        s.erase(s.begin(), s.begin()+n);
+        return;
+    }
+};
+
+//Two pointers 
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        int n = s.size();
+        int low = 0, high = n-1;
+        
+        while(low <= high){
+            swap(s[low], s[high]);
+            low++; high--;
+        }
+        return;
+    }
+};
+
+
+//using Stack
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        
+      stack<char> st;
+	for (int i = 0; i < s.size(); ++i)
+	{
+		st.push(s[i]);
+	}
+	int i = 0;
+	while (!(st.empty())) {
+		s[i] = st.top();
+		st.pop();
+		i++;
+	}
+        
+    }
+};
